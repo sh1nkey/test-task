@@ -1,0 +1,27 @@
+version: '3'
+services:
+  postgres1:
+    container_name: db_auth
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./data/postgres_auth:/var/lib/postgresql/data
+    ports:
+      - "5445:5432"
+
+
+
+  postgres2:
+    container_name: db_transaction
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./data/postgres_payment:/var/lib/postgresql/data
+    ports:
+      - "5446:5432"
